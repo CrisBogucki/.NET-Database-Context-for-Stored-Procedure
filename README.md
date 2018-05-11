@@ -24,7 +24,7 @@ public class SampleResultModel
 
 ### Model as Stored Procedure name and properties as parameters:
 
-- ExecuteToList
+ExecuteToList
 ```
 using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 {
@@ -33,7 +33,7 @@ using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 }
 ```
 
-- ExecuteFirstOrDefault
+ExecuteFirstOrDefault
 ```
 using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 {
@@ -44,7 +44,7 @@ using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 
 ### Stored Procedure as String:
 
-- ExecuteFirstOrDefault
+ExecuteFirstOrDefault
 ```
 using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 {
