@@ -35,7 +35,7 @@ namespace ContextDbSP
         {
             _command.CommandText = typeof(T).Name;
 
-            Logger.Info($"Init storage procedure: {_command.CommandText}");
+            Logger.Info($"Init stored procedure: {_command.CommandText}");
             _parameters = string.Empty;
             _command.Parameters.Clear();
             foreach (var property in typeof(T).GetProperties())
@@ -86,11 +86,11 @@ namespace ContextDbSP
             try
             {
                 reader = _command.ExecuteReader();
-                Logger.Info($"Execute storage procedure: {_command.CommandText}");
+                Logger.Info($"Execute stored procedure: {_command.CommandText}");
             }
             catch (Exception e)
             {
-                Logger.Error($"Failed execute storage procedure: {_command.CommandText}", e, e.Message);
+                Logger.Error($"Failed execute stored procedure: {_command.CommandText}", e, e.Message);
                 throw new Exception(e.Message);
             }
 
@@ -119,7 +119,7 @@ namespace ContextDbSP
                             {
                                 reader.Close();
                                 Logger.Error($"Structure error SQL <==> CLASS: {e.Message}", e, e.Message);
-                                throw new Exception($"Structure error storage procedure [{_command.CommandText}] SQL <==> CLASS. {e.Message}");
+                                throw new Exception($"Structure error stored procedure [{_command.CommandText}] SQL <==> CLASS. {e.Message}");
                             }
                         }
                         else
@@ -137,7 +137,7 @@ namespace ContextDbSP
 
             reader.Close();
             sw.Stop();
-            Logger.Trace($"Performance time: all:{sw.Elapsed.Milliseconds}ms, sql:{timeSql.Milliseconds}ms, storage procedure name:{_command.CommandText}, parameters: {_parameters}");
+            Logger.Trace($"Performance time: all:{sw.Elapsed.Milliseconds}ms, sql:{timeSql.Milliseconds}ms, stored procedure name:{_command.CommandText}, parameters: {_parameters}");
             return resultList;
         }
 
