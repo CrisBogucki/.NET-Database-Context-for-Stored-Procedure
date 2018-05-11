@@ -48,6 +48,6 @@ ExecuteFirstOrDefault
 ```
 using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 {
-    var result = db.ExecuteFirstOrDefault<SampleResultModel>("Test2");
+    var result = db.ExecuteFirstOrDefault<SampleResultModel>("SampleStoredProcedureName");
 }
 ```
