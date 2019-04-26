@@ -38,7 +38,7 @@ ExecuteFirstOrDefault
 using (var db = new ContextDb(Config.ConnectionStrings.MASTER))
 {
     db.SetCommandText(new SampleStoredProcedureName(){ Param1 = 1, Param2 = 2, Param3 = 4});
-    var result = db.db.ExecuteFirstOrDefault<SampleResultModel>();
+    var result = db.ExecuteFirstOrDefault<SampleResultModel>();
 }
 ```
 
